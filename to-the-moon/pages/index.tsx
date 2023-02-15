@@ -3,10 +3,18 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Navbar from '@/components/Navbar'
+import ForFun from '@/components/ForFrun'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  async function connectHandler(){
+    const res = await fetch('/api/connect');
+    const data = await res.json()
+    // await alert(data.name)
+  }
+
   return (
     <>
       <Head>
@@ -18,6 +26,8 @@ export default function Home() {
         <Navbar/>
         <main className={styles.main}>
         <h1>To The Moon Home Page</h1>
+        <ForFun></ForFun>
+        
         <h2>뭘 넣을지 같이 고민해봅시다~</h2>
       </main>
     </>
