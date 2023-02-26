@@ -32,10 +32,12 @@ export default function Home() {
         <div
           style={{
             display: "flex",
-            justifyContent: 'space-evenly',
+            justifyContent: 'space-between',
             alignItems: "center",
             width  : '100%',
-            marginTop : '10px'
+            marginTop : '10px',
+            paddingLeft: '5%',
+            paddingRight: '5%',
           }}
         >
           <div>

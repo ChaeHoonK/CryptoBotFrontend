@@ -28,6 +28,7 @@
   width: 100%;
   padding : 30px;
   justify-self:stretch !important;
+  margin-bottom: 50px;
 }
 
 .investCardContainer {
@@ -35,6 +36,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   row-gap: 10px;
+  gap: 10px;
 }
 
 .description {
