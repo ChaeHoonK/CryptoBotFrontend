@@ -10,6 +10,7 @@
 }
 
 .title {
+  display: inline;
   font-family: 'Outfit';
   font-size: 34;
   font-weight: bolder;

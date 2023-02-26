@@ -27,22 +27,42 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <Navbar/> */}
-      
+
       <main className={styles.main}>
         <div
           style={{
-            textAlign: "right",
-            alignSelf: "flex-end",
-            marginRight: "5%",
+            display: "flex",
+            justifyContent: 'space-evenly',
+            alignItems: "center",
+            width  : '100%',
+            marginTop : '10px'
           }}
         >
-          <h1 className={styles.title}>To The Moon</h1>
-          <h4 className={styles.sub}>Market Summary</h4>
-        </div>
+          <div>
+            <img
+              src="/TTM Logo.png"
+              width="60px"
+              height="60px"
+              alt="TTM logo"
+            />
+          </div>
 
+          <div
+            style={{
+              textAlign: "right",
+              // alignSelf: "flex-end",
+              // marginRight: "5%",
+            }}
+          >
+            <h1 className={styles.title}>To The Moon</h1>
+            <h4 className={styles.sub}>Market Summary</h4>
+          </div>
+        </div>
+        
+        
         <InvestmentSummaryComponent />
 
-        <br/>
+        <br />
 
         <div className={styles.totalInvestmentContainer}>
           <h2 style={{ color: "black" }}>Total Investment</h2>

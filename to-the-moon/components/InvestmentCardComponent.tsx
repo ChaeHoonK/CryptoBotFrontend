@@ -1,11 +1,26 @@
-import styles from './InvestmentCardComponent.module.css'
+import styles from "./InvestmentCardComponent.module.css";
+import {BsCoin} from "react-icons/bs"
 
-export default function InvestmentCardComponent ({title, price} : {title:string, price:number}) {
-    return (
-        <div className={styles.main}>
-            <div className={styles.sample}/>
-            <h4>{title}</h4>
-            <h3>$ {price}</h3>
-        </div>
-    )
+export default function InvestmentCardComponent({
+  title,
+  price,
+}: {
+  title: string;
+  price: number;
+}) {
+
+    function handleClick() {
+        alert('아직 준비중 입니다')
+    }
+
+  return (
+    
+    <div className={styles.main} onClick = {handleClick}>
+      <div className={styles.sample}>
+        <h1><BsCoin/></h1>
+      </div>
+      <h4>{title}</h4>
+      <h3>$ {price}</h3>
+    </div>
+  );
 }
