@@ -40,7 +40,31 @@
   --card-border-rgb: 131, 134, 135;
 }
 
-@media (prefers-color-scheme: dark) {
+@font-face {
+  font-family: 'Outfit';
+  src: local(''),
+    url('/Outfit-Regular.ttf')
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: bolder;
+  font-family: 'Outfit';
+}
+
+h5 {
+  font-size: 14px;
+  font-weight: lighter;
+  font-family: 'Outfit';
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: lighter;
+  font-family: 'Outfit';
+}
+
+ /* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
@@ -71,7 +95,7 @@
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -104,4 +128,4 @@ a {
   html {
     color-scheme: dark;
   }
-}
+} 

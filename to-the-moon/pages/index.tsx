@@ -1,17 +1,20 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import Navbar from '@/components/Navbar'
-import ForFun from '@/components/ForFrun'
+import Head from "next/head";
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "@/styles/Home.module.css";
+import Navbar from "@/components/Navbar";
+import ForFun from "@/components/ForFrun";
+import InvestmentSummaryComponent from "@/components/InvestmentSummaryComponent";
+import InvestmentCardComponent from "@/components/InvestmentCardComponent";
 
-const inter = Inter({ subsets: ['latin'] })
+import BottomNavigation from "@/components/BottomNavigation";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-
-  async function connectHandler(){
-    const res = await fetch('/api/connect');
-    const data = await res.json()
+  async function connectHandler() {
+    const res = await fetch("/api/connect");
+    const data = await res.json();
     // await alert(data.name)
   }
 
@@ -23,13 +26,40 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-        <Navbar/>
-        <main className={styles.main}>
-        <h1>To The Moon Home Page</h1>
-        <ForFun></ForFun>
-        
-        <h2>뭘 넣을지 같이 고민해봅시다~</h2>
+      {/* <Navbar/> */}
+      
+      <main className={styles.main}>
+        <div
+          style={{
+            textAlign: "right",
+            alignSelf: "flex-end",
+            marginRight: "5%",
+          }}
+        >
+          <h1 className={styles.title}>To The Moon</h1>
+          <h4 className={styles.sub}>Market Summary</h4>
+        </div>
+
+        <InvestmentSummaryComponent />
+
+        <br/>
+
+        <div className={styles.totalInvestmentContainer}>
+          <h2 style={{ color: "black" }}>Total Investment</h2>
+          <br />
+          <div className={styles.investCardContainer}>
+            <InvestmentCardComponent title="stock" price={150} />
+            <InvestmentCardComponent title="Bit Coin" price={110} />
+            <InvestmentCardComponent title="Etherium" price={130} />
+            <InvestmentCardComponent title="Etherium" price={140} />
+            <InvestmentCardComponent title="Etherium" price={140} />
+            <InvestmentCardComponent title="Etherium" price={140} />
+          </div>
+        </div>
+
+        <BottomNavigation />
+        {/* <ForFun></ForFun> */}
       </main>
     </>
-  )
+  );
 }
