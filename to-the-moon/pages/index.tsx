@@ -48,6 +48,7 @@ export default function Home() {
               alt="TTM logo"
             />
           </div>
+            
 
           <div
             style={{
@@ -60,7 +61,6 @@ export default function Home() {
             <h4 className={styles.sub}>Market Summary</h4>
           </div>
         </div>
-        
         
         <InvestmentSummaryComponent />
 
