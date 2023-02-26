@@ -1,6 +1,6 @@
 import styles from "./InvestmentSummaryComponent.module.css";
 
-import {AiFillCaretDown, AiFillCaretUp} from 'react-icons/Ai'
+import {AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai'
 
 export default function InvestmentSummaryComponent() {
   return (
