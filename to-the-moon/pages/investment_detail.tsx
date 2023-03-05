@@ -126,7 +126,7 @@ function History(hist: any[]) {
         ? { backgroundColor: "red" }
         : { backgroundColor: "green" };
     return (
-      <div style={{ display: "flex", justifyContent: "space-around" }}>
+      <div style={{ display: "flex", justifyContent: "space-around" }}key={index}>
         <h3>{elem.market}</h3>
         <h3>{elem.amount}</h3>
         <h3>{elem.date}</h3>
