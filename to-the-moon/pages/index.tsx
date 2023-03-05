@@ -9,6 +9,8 @@ import InvestmentCardComponent from "@/components/InvestmentCardComponent";
 
 import BottomNavigation from "@/components/BottomNavigation";
 
+import TopTitle from "@/components/TopTitle";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -26,41 +28,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       {/* <Navbar/> */}
 
       <main className={styles.main}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: 'space-between',
-            alignItems: "center",
-            width  : '100%',
-            marginTop : '10px',
-            paddingLeft: '5%',
-            paddingRight: '5%',
-          }}
-        >
-          <div>
-            <img
-              src="/TTM Logo.png"
-              width="60px"
-              height="60px"
-              alt="TTM logo"
-            />
-          </div>
-            
+        <TopTitle/>
 
-          <div
-            style={{
-              textAlign: "right",
-              // alignSelf: "flex-end",
-              // marginRight: "5%",
-            }}
-          >
-            <h1 className={styles.title}>To The Moon</h1>
-            <h4 className={styles.sub}>Market Summary</h4>
-          </div>
-        </div>
+        <br/>
         
         <InvestmentSummaryComponent />
 
