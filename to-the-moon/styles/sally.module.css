@@ -1,6 +1,22 @@
 .main {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
-}
+    /* padding: 6rem; */
+    min-height: 100vh;
+    background-color: #FFF5E7;
+    padding-bottom: 0px;
+  }
+  
+  .title {
+    display: inline;
+    font-family: 'Outfit';
+    font-size: 34;
+    font-weight: bolder;
+    color:#000000;
+  }
+  
+  .sub {
+    color:#000000;
+  }

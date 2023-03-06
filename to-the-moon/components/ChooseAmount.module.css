@@ -1,0 +1,19 @@
+
+.main {
+    width: 96px;
+    height: 86px;
+    border-radius: 20%;
+    border: 1px solid transparent;
+    background-color: white;
+    border-color: rgb(157, 157, 157);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding : 20px
+}
+
+.main:hover {
+    border-color: rgb(233, 97, 37);
+    color:rgb(233, 97, 37)
+}
