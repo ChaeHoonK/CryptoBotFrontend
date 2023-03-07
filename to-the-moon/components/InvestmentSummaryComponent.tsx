@@ -8,23 +8,26 @@ function getRandomInt(max : number) {
   return Math.floor(Math.random() * max);
 }
 
-function numberWithCommas(x : number):string {
+function numberWithCommas(x : number|undefined):string {
+  if (typeof(x) != 'number') {
+    return 'not definded'
+  }
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-export default function InvestmentSummaryComponent() {
+export default function InvestmentSummaryComponent({total,cash,coin} : any) {
 
-  const [gain, setGain] = useState(6400)
-  const [loss, setLoss] = useState(3100)
-  const[total, setTotal] = useState(82000)
+  // const [gain, setGain] = useState(6400)
+  // const [loss, setLoss] = useState(3100)
+  // const[total, setTotal] = useState(82000)
 
-  useEffect(()=> {
-    const random_gain = getRandomInt(1000)
-    const random_loss = getRandomInt(1000)
-    setGain (gain + random_gain)
-    setLoss(loss+random_loss)
-    setTotal(total + random_gain - random_loss)
-  },[])
+  // useEffect(()=> {
+  //   const random_gain = getRandomInt(1000)
+  //   const random_loss = getRandomInt(1000)
+  //   setGain (gain + random_gain)
+  //   setLoss(loss+random_loss)
+  //   setTotal(total + random_gain - random_loss)
+  // },[])
 
   //const [gain_amount, setGainAmount] = useState(gain)
   
@@ -33,21 +36,19 @@ export default function InvestmentSummaryComponent() {
     <div className={styles.main}>
       <div className={styles.total}>
         <h4>Total Investments</h4>
-        <h2>$ {numberWithCommas(total)}</h2>
+        <h2>₩ {numberWithCommas(total)}</h2>
       </div>
         <hr className = {styles.horizontal_line}/>
 
-        
-
       <div className={styles.gain_loss}>
         <div className={styles.gain}>
-          <h5>Gain <AiFillCaretUp/></h5>
-          <h4 className={styles.bold}>$ {numberWithCommas(gain)}</h4>
+          <h5>Cash <AiFillCaretUp/></h5>
+          <h4 className={styles.bold}>₩ {numberWithCommas(cash)}</h4>
         </div>
             <hr className={styles.vertical_line}/>
         <div className={styles.gain}>
-          <h5>Loss <AiFillCaretDown/></h5>
-          <h4 className={styles.bold}>$ {numberWithCommas(loss)}</h4>
+          <h5>Coin <AiFillCaretDown/></h5>
+          <h4 className={styles.bold}>{numberWithCommas(coin)}</h4>
         </div>
       </div>
     </div>

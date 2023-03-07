@@ -145,7 +145,7 @@ function Tmp() {
     <div>
       <h3>Total Earning</h3>
       <h1>
-        $87,875
+        ₩87,875
         <span style = {{color:'green', fontSize:'20px'}}>
           <AiFillCaretUp />
           10%
@@ -155,7 +155,7 @@ function Tmp() {
 
     <div>
       <h5>Profit</h5>
-      <h3>$2,593</h3>
+      <h3>₩2,593</h3>
     </div>
   </div>
 }
@@ -188,7 +188,7 @@ export default function InvestmentDetailPage() {
           <h2>{elem.name}</h2>
         </div>
         <div style={{color: green_red}}>
-          <h2>$ {elem.earning}</h2>
+          <h2>₩ {elem.earning}</h2>
         </div>
       </div>
     );

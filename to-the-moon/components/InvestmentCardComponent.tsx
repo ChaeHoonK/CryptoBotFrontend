@@ -1,5 +1,6 @@
 import styles from "./InvestmentCardComponent.module.css";
 import {BsCoin} from "react-icons/bs"
+import { numberWithCommas } from "@/library/string";
 
 export default function InvestmentCardComponent({
   title,
@@ -20,7 +21,7 @@ export default function InvestmentCardComponent({
         <h1><BsCoin/></h1>
       </div>
       <h4>{title}</h4>
-      <h3>$ {price}</h3>
+      <h3>₩ {numberWithCommas(price)}</h3>
     </div>
   );
 }

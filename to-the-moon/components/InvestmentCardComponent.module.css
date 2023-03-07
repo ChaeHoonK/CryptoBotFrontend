@@ -1,6 +1,8 @@
 .main {
-    width: 175px;
-    height: 175px;
+    width: 40vw;
+    max-width: 200px;
+    height: 40vw;
+    max-height: 200px;
     border-radius: 30px;
     border: 2px solid transparent;
     background:

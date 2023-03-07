@@ -13,7 +13,7 @@ export default function ChooseAmount({
     return (
       
       <div className={styles.main} onClick = {handleClick}>
-        <h4>$ {price}</h4>
+        <h4>₩ {price}</h4>
       </div>
     );
   }

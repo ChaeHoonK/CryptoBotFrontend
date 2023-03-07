@@ -6,19 +6,20 @@ import Navbar from "@/components/Navbar";
 import ForFun from "@/components/ForFrun";
 import InvestmentSummaryComponent from "@/components/InvestmentSummaryComponent";
 import InvestmentCardComponent from "@/components/InvestmentCardComponent";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import BottomNavigation from "@/components/BottomNavigation";
 
 import TopTitle from "@/components/TopTitle";
+import { numberWithCommas } from "@/library/string";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  
   const [wallet, setWallet] = useState<any>(undefined);
   const [bitcoin, setBitcoin] = useState(0);
   const [etherium, setEtherium] = useState(0);
+  const [number, setNumber] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,13 +31,41 @@ export default function Home() {
       const bit = await bitcoin_res.json();
       const ether = await ether_res.json();
 
-      console.log(data)
+      console.log(data);
       setWallet(data);
       setBitcoin(Number(bit.price));
       setEtherium(Number(ether.price));
     };
     fetchData();
   }, []);
+
+  function handleChange(e:any) {
+    setNumber(e.target?.value)
+  }
+
+  async function handleBuy() {
+    await fetch('api/order', {
+        method:"POST",
+        body:JSON.stringify({
+            "user_id": 1,
+            "type": 'buy',
+            'coin_num':Number(number)
+        })
+    })
+  }
+
+  async function handleSell() {
+    console.log('handle Sell')
+    const response = await fetch('api/order', {
+        method:"POST",
+        body:JSON.stringify({
+            "user_id": 1,
+            "type": 'sell',
+            'coin_num':Number(number)
+        })
+    })
+    console.log(response)
+  }
 
   return (
     <>
@@ -62,13 +91,16 @@ export default function Home() {
 
         <br />
 
-        <div className={styles.totalInvestmentContainer}>
-          <h2 style={{ color: "black" }}>Total Investment</h2>
-          <br />
-          <div className={styles.investCardContainer}>
-            <InvestmentCardComponent title="Bitcoin" price={bitcoin} />
-            <InvestmentCardComponent title="Etherium" price={etherium} />
-          </div>
+        <div>
+          <h3>현재 비트코인 시세</h3>
+          <h2>₩ {numberWithCommas(bitcoin)}</h2>
+        </div>
+
+        <input type="text" onChange={handleChange}/>
+        <p>{number}</p>
+        <div>
+          <button onClick={handleBuy}>buy</button>
+          <button onClick={handleSell}>sell</button>
         </div>
 
         <BottomNavigation />
