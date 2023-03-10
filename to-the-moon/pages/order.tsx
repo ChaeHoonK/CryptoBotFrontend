@@ -56,6 +56,7 @@ export default function Home() {
 
   async function handleClick(type: string) {
     setLoading(true)
+    console.log('requesting type: ', type)
     const response = await fetch('api/order', {
         method:"POST",
         body:JSON.stringify({
@@ -64,6 +65,11 @@ export default function Home() {
             'coin_num':Number(number)
         })
     })
+    //const data = await response.json()
+    console.log('data is ', response)
+
+    console.log('done')
+    
     setNumber(0)
     setLoading(false)
   }

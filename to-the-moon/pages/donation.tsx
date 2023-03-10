@@ -3,6 +3,7 @@ import styles from "@/styles/donation.module.css";
 import DonationImg from "../components/DonationImg";
 import ChooseAmount from "@/components/ChooseAmount";
 import BottomNavigation from "@/components/BottomNavigation";
+import Link from "next/link";
 
 
 
@@ -40,16 +41,18 @@ export default function donation() {
             <ChooseAmount price={150} />
           </div>
           <br />
-        <hr />
+        <hr className ={styles.horizontal_line}/>
           <br />
           <div className = {styles.ManualPrice}>
             <input className = {styles.ManualPrice} type = "number" id = "amount" placeholder="Enter Price Manually" maxLength={10}></input>
           </div>
             
           <br />
+          <Link href = '/donation2'>
           <div className = {styles.donateButton}>
             <h4>Donate Now</h4>
           </div>
+          </Link>
       </div>
     
       
