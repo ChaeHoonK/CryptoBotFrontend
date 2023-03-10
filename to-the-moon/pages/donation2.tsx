@@ -3,7 +3,6 @@ import styles from "@/styles/donation.module.css";
 import DonationImg from "../components/DonationImg";
 import ChooseAmount from "@/components/ChooseAmount";
 import BottomNavigation from "@/components/BottomNavigation";
-import Link from "next/link";
 
 
 
@@ -24,6 +23,14 @@ export default function donation() {
         alt="Donate"
       />
       </div>
+      <div className={styles.thankYou}>
+        <h1>Thank</h1>
+        <h1>You</h1>
+        <br  />
+        <h4 className={styles.donateButton2}>for $50</h4>
+        <br  />
+        <h4 className={styles.ttm}>-To The Moon-</h4>
+      </div>
       
       <br />
       <br />
@@ -32,27 +39,10 @@ export default function donation() {
      
       <br />
   
-        <h3 style={{ color: "black" }}>Choose amount</h3>
-        <br />
-        
-          <div className={styles.ChooseAmount}>
-            <ChooseAmount price={50} />
-            <ChooseAmount price={100} />
-            <ChooseAmount price={150} />
-          </div>
           <br />
-        <hr className ={styles.horizontal_line}/>
-          <br />
-          <div className = {styles.ManualPrice}>
-            <input className = {styles.ManualPrice} type = "number" id = "amount" placeholder="Enter Price Manually" maxLength={10}></input>
-          </div>
-            
-          <br />
-          <Link href = '/donation2'>
           <div className = {styles.donateButton}>
-            <h4>Donate Now</h4>
+            <h4>Donate Again</h4>
           </div>
-          </Link>
       </div>
     
       
