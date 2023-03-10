@@ -79,9 +79,11 @@ export default function Home() {
           </div>
         </div>
 
-        <BottomNavigation />
+        
         {/* <ForFun></ForFun> */}
       </main>
+      <BottomNavigation />
     </>
+    
   );
 }

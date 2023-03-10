@@ -2,6 +2,8 @@ import { Inter } from "@next/font/google";
 import styles from "@/styles/donation.module.css";
 import DonationImg from "../components/DonationImg";
 import ChooseAmount from "@/components/ChooseAmount";
+import BottomNavigation from "@/components/BottomNavigation";
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -9,6 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function donation() {
 
   return (
+    <>
     <main className={styles.donation}>
       
       <div className={styles.donateNow}>
@@ -37,17 +40,21 @@ export default function donation() {
             <ChooseAmount price={150} />
           </div>
           <br />
-          <hr />
+        <hr />
           <br />
           <div className = {styles.ManualPrice}>
-            <h4>Enter Price Manually</h4>
+            <input className = {styles.ManualPrice} type = "number" id = "amount" placeholder="Enter Price Manually" maxLength={10}></input>
           </div>
+            
           <br />
           <div className = {styles.donateButton}>
             <h4>Donate Now</h4>
           </div>
       </div>
+    
       
     </main>
+    <BottomNavigation />
+    </>
   );
 }
