@@ -3,6 +3,7 @@ import styles from "@/styles/donation.module.css";
 import DonationImg from "../components/DonationImg";
 import ChooseAmount from "@/components/ChooseAmount";
 import BottomNavigation from "@/components/BottomNavigation";
+import Link from "next/link";
 
 
 
@@ -47,9 +48,11 @@ export default function donation() {
           </div>
             
           <br />
+          <Link href = '/donation2'>
           <div className = {styles.donateButton}>
             <h4>Donate Now</h4>
           </div>
+          </Link>
       </div>
     
       
