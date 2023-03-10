@@ -1,0 +1,20 @@
+.main {
+    width: 140px;
+    height: 190px;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-color: white;
+    border-color: rgb(233, 97, 37);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding : 20px;
+    gap: 2.5px;
+}
+
+.main img{
+    width: 101px;
+    height: 129px;
+    border-radius: 15px;
+}

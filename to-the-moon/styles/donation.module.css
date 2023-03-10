@@ -65,3 +65,8 @@
   height: 56px;
   border-radius: 56px;
 }
+
+.horizontal_line {
+  width: 90%;
+  align-self: center;
+}
