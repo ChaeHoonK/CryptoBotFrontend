@@ -12,7 +12,8 @@ export default async function handler(
     const body = JSON.parse(req.body)
     console.log('req body original', req.body)
     console.log('바딩', body)
-
+    
+    const axios = require('axios')
     const data = JSON.stringify({
         "user_id": body.user_id,
         "type": body.type,
@@ -21,14 +22,13 @@ export default async function handler(
 
     const config = {
         method:'post',
-        url:process.env.BACKEND_HOST + 'order/',
+        url:process.env.BACKEND_HOST + 'order',
         headers: { 
             'Content-Type': 'application/json'
           },
         data: data,
         maxBodyLength: Infinity
     }
-    const axios = require('axios')
     const response = await axios(config)
 
     res.status(200).send(response.data)
