@@ -13,6 +13,19 @@
   justify-content: space-between;
 }
 
+.thankYou {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ttm {
+  color: rgb(233, 97, 37);
+  font-weight:bold;
+}
+
+
 .ChooseAmountGroup {
   display: flex;
   flex-direction: column;
@@ -63,5 +76,17 @@
   color: white;
   width: 329px;
   height: 56px;
+  border-radius: 56px;
+}
+
+.donateButton2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color:  rgb(233, 97, 37);
+  color: white;
+  width: 124px;
+  height: 25px;
   border-radius: 56px;
 }
