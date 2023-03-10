@@ -19,11 +19,13 @@ export default function contribution() {
         <br />
         
         <div className={styles.people}>
+            <Profile ImgSrc="chaehoon.png" MemberName="Chae Hoon Kim" Role="Project Manager"/>
+            <Profile ImgSrc="mooyoung.png" MemberName="Mooyoung Jung" Role="FrontEnd"/>
             <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
-            <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
-            <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
-            <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
-            <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
+            <Profile ImgSrc="heonjang.jpeg" MemberName="Heonjang Lee" Role="Backend"/>
+            <Profile ImgSrc="seunghwan.jpeg" MemberName="Seunghwan Hong" Role="Backend"/>
+            <Profile ImgSrc="jaeyoung.png" MemberName="Hong Ju Jin" Role="Backend"/>
+            <Profile ImgSrc="hongju.jpeg" MemberName="Hong Ju Jin" Role="Design"/>
         </div>
         
         
