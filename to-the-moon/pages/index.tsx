@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import ForFun from "@/components/ForFrun";
 import InvestmentSummaryComponent from "@/components/InvestmentSummaryComponent";
 import InvestmentCardComponent from "@/components/InvestmentCardComponent";
+import { useEffect, useState } from "react";
 
 import BottomNavigation from "@/components/BottomNavigation";
 
@@ -14,11 +15,34 @@ import TopTitle from "@/components/TopTitle";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  async function connectHandler() {
-    const res = await fetch("/api/connect");
-    const data = await res.json();
-    // await alert(data.name)
-  }
+  
+  const [wallet, setWallet] = useState<any>(undefined);
+  const [bitcoin, setBitcoin] = useState(0);
+  const [etherium, setEtherium] = useState(0);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data_res = await fetch("/api/wallet/1");
+      const bitcoin_res = await fetch(`/api/price/BTC`);
+      const ether_res = await fetch(`/api/price/ETC`);
+
+      const data = await data_res.json();
+      const bit = await bitcoin_res.json();
+      const ether = await ether_res.json();
+
+      //console.log(data)
+      setWallet(data);
+      setBitcoin(Number(bit.price));
+      setEtherium(Number(ether.price));
+    };
+
+    const interval = setInterval(async() => {
+      await fetchData()
+    }
+    , 15000);
+
+    return ()=>clearInterval(interval)
+  }, []);
 
   return (
     <>
@@ -32,11 +56,15 @@ export default function Home() {
       {/* <Navbar/> */}
 
       <main className={styles.main}>
-        <TopTitle/>
+        <TopTitle />
 
-        <br/>
-        
-        <InvestmentSummaryComponent />
+        <br />
+
+        <InvestmentSummaryComponent
+          total={wallet?.total}
+          coin={wallet?.bitcoin}
+          cash={wallet?.cash}
+        />
 
         <br />
 
@@ -44,12 +72,8 @@ export default function Home() {
           <h2 style={{ color: "black" }}>Total Investment</h2>
           <br />
           <div className={styles.investCardContainer}>
-            <InvestmentCardComponent title="stock" price={150} />
-            <InvestmentCardComponent title="Bit Coin" price={110} />
-            <InvestmentCardComponent title="Etherium" price={130} />
-            <InvestmentCardComponent title="Etherium" price={140} />
-            <InvestmentCardComponent title="Etherium" price={140} />
-            <InvestmentCardComponent title="Etherium" price={140} />
+            <InvestmentCardComponent title="Bitcoin" price={bitcoin} />
+            <InvestmentCardComponent title="Etherium" price={etherium} />
           </div>
         </div>
 
