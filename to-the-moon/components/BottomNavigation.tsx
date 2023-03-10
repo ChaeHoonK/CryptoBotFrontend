@@ -45,7 +45,7 @@ export default function BottomNavigation() {
         </div>
       </Link>
 
-      <Link href="/donation">
+      <Link href="/contribution">
         <div style={{textAlign:'center'}}>
           <h1>
             <BsPeople />

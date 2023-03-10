@@ -16,7 +16,8 @@ export default function contribution() {
             <img src="team.jpg" width="390px" height="254px" />
             <strong className = {styles.centered}>Meet our Team</strong>
         </div>
-        <br /> 
+        <br />
+        
         <div className={styles.people}>
             <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
             <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
@@ -24,6 +25,8 @@ export default function contribution() {
             <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
             <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
         </div>
+        
+        
         
     </main>
     <BottomNavigation />
