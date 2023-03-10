@@ -30,12 +30,18 @@ export default function Home() {
       const bit = await bitcoin_res.json();
       const ether = await ether_res.json();
 
-      console.log(data)
+      //console.log(data)
       setWallet(data);
       setBitcoin(Number(bit.price));
       setEtherium(Number(ether.price));
     };
-    fetchData();
+
+    const interval = setInterval(async() => {
+      await fetchData()
+    }
+    , 15000);
+
+    return ()=>clearInterval(interval)
   }, []);
 
   return (

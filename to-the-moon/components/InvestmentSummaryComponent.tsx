@@ -4,15 +4,10 @@ import {AiFillCaretDown, AiFillCaretUp} from 'react-icons/ai'
 
 import { useEffect, useState } from "react";
 
+import { numberWithCommas } from "@/library/string";
+
 function getRandomInt(max : number) {
   return Math.floor(Math.random() * max);
-}
-
-function numberWithCommas(x : number|undefined):string {
-  if (typeof(x) != 'number') {
-    return 'not definded'
-  }
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 export default function InvestmentSummaryComponent({total,cash,coin} : any) {
@@ -48,7 +43,7 @@ export default function InvestmentSummaryComponent({total,cash,coin} : any) {
             <hr className={styles.vertical_line}/>
         <div className={styles.gain}>
           <h5>Coin <AiFillCaretDown/></h5>
-          <h4 className={styles.bold}>{numberWithCommas(coin)}</h4>
+          <h4 className={styles.bold}>{coin}</h4>
         </div>
       </div>
     </div>
