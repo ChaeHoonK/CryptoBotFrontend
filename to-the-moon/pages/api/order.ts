@@ -21,7 +21,7 @@ export default async function handler(
 
     const config = {
         method:'post',
-        url:process.env.BACKEND_HOST + 'order/',
+        url:process.env.BACKEND_HOST + 'order',
         headers: { 
             'Content-Type': 'application/json'
           },
