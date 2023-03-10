@@ -41,7 +41,7 @@ export default function donation() {
             <ChooseAmount price={150} />
           </div>
           <br />
-        <hr />
+        <hr className ={styles.horizontal_line}/>
           <br />
           <div className = {styles.ManualPrice}>
             <input className = {styles.ManualPrice} type = "number" id = "amount" placeholder="Enter Price Manually" maxLength={10}></input>

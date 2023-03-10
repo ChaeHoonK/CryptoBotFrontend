@@ -79,6 +79,12 @@
   border-radius: 56px;
 }
 
+
+.horizontal_line {
+  width: 90%;
+  align-self: center;
+  }
+
 .donateButton2 {
   display: flex;
   flex-direction: column;
