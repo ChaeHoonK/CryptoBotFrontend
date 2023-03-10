@@ -65,8 +65,11 @@ export default function Home() {
             'coin_num':Number(number)
         })
     })
-    const data = await response.json()
-    console.log('data is ',data)
+    //const data = await response.json()
+    console.log('data is ', response)
+
+    console.log('done')
+    
     setNumber(0)
     setLoading(false)
   }
