@@ -23,7 +23,7 @@ export default function BottomNavigation() {
           <h1>
             <BsCoin />
           </h1>
-          <h4 style={{position:'relative', top:'-10px'}}>Invest</h4>
+          <h4 style={{position:'relative', top:'-10px'}}>Order</h4>
           </div>
         </Link>
       
@@ -41,7 +41,7 @@ export default function BottomNavigation() {
           <h1>
             <FaReceipt />
           </h1>
-          <h4 style={{position:'relative', top:'-10px'}}>Order</h4>
+          <h4 style={{position:'relative', top:'-10px'}}>Invest</h4>
         </div>
       </Link>
 

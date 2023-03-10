@@ -37,7 +37,7 @@ export default function InvestmentSummaryComponent({total,cash,coin} : any) {
 
       <div className={styles.gain_loss}>
         <div className={styles.gain}>
-          <h5>Cash <AiFillCaretUp/></h5>
+          <h5>Balance <AiFillCaretUp/></h5>
           <h4 className={styles.bold}>₩ {numberWithCommas(cash)}</h4>
         </div>
             <hr className={styles.vertical_line}/>

@@ -24,7 +24,7 @@ export default function contribution() {
             <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
             <Profile ImgSrc="heonjang.jpeg" MemberName="Heonjang Lee" Role="Backend"/>
             <Profile ImgSrc="seunghwan.jpeg" MemberName="Seunghwan Hong" Role="Backend"/>
-            <Profile ImgSrc="jaeyoung.png" MemberName="Hong Ju Jin" Role="Backend"/>
+            <Profile ImgSrc="jaeyoung.png" MemberName="Jaeyoung Kang" Role="Backend"/>
             <Profile ImgSrc="hongju.jpeg" MemberName="Hong Ju Jin" Role="Design"/>
         </div>
         
