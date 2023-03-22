@@ -21,7 +21,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
-import {numberWithCommas} from '@/library/string'
+import { numberWithCommas } from "@/library/string";
 
 const theme = createTheme({
   palette: {
@@ -127,20 +127,15 @@ function History(hist: any[]) {
         ? { backgroundColor: "red" }
         : { backgroundColor: "green" };
     return (
-      <div key={index} style={{marginBottom:'10px'}}>
-        <div
-          style={{ display: "flex", justifyContent: "space-around" }}
-        >
+      <div key={index} style={{ marginBottom: "10px" }}>
+        <div style={{ display: "flex", justifyContent: "space-around" }}>
           <h3>Bitcoin</h3>
           <h3>{elem.num_coin}</h3>
-          
           <div style={{ color: "white", ...contain_style }}>
             <h3>{elem.type ? "Buy" : "Sell"}</h3>
           </div>{" "}
         </div>
-        <div
-          style={{ display: "flex", justifyContent: "space-around" }}
-        >
+        <div style={{ display: "flex", justifyContent: "space-around" }}>
           <h3>Price: ₩{numberWithCommas(elem.trade_price)}</h3>
           <h3>
             {typeof elem.timestamp == "string"
@@ -240,13 +235,8 @@ export default function InvestmentDetailPage() {
             <Tab label="History" {...a11yProps(1)} />
           </Tabs>
         </Box>
-        <TabPanel value={value} index={0}>
-          <br />
-          <Tmp />
-          {assetList}
-        </TabPanel>
 
-        <TabPanel value={value} index={1}>
+        <TabPanel value={value} index={0}>
           <br />
           <Tmp />
           <Line options={options} data={data} />;
@@ -263,6 +253,11 @@ export default function InvestmentDetailPage() {
             <br />
             {transactionHistory ? History(transactionHistory) : "loading..."}
           </div>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <br />
+          <Tmp />
+          {assetList}
         </TabPanel>
       </ThemeProvider>
 
