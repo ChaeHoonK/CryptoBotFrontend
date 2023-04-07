@@ -1,0 +1,19 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(74, 150, 150);
+    color: rgb(25, 71, 110);
+    width: 100px;
+    height: 70px;
+    border-radius: 20px;
+    border: 2px solid rgb(rgb(132, 59, 59), green, blue);
+
+}
+.main:hover {
+    background-color: brown;
+    width: 120px;
+    height: 90px;
+    color:rgb(rgb(132, 59, 59), green, blue);
+}
