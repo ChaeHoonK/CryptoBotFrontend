@@ -26,6 +26,7 @@ export default function Home() {
       const bitcoin_res = await fetch(`/api/price/BTC`);
       const ether_res = await fetch(`/api/price/ETC`);
 
+  
       const data = await data_res.json();
       const bit = await bitcoin_res.json();
       const ether = await ether_res.json();
@@ -35,6 +36,8 @@ export default function Home() {
       setBitcoin(Number(bit.price));
       setEtherium(Number(ether.price));
     };
+    
+    fetchData()
 
     const interval = setInterval(async() => {
       await fetchData()

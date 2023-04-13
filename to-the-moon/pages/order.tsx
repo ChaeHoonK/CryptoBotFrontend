@@ -38,6 +38,8 @@ export default function Home() {
       setBitcoin(Number(bit.price));
       setEtherium(Number(ether.price));
     };
+
+    fetchData()
     
     const interval = setInterval(async() => {
       await fetchData()
