@@ -1,35 +1,45 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-const { Configuration, OpenAIApi } = require("openai");
 
-async function sendToChatGPT(prompt : string) {
+import { Configuration, OpenAIApi } from "openai";
+
+const MAX_RETRIES = 2;
+const INITIAL_DELAY = 1000;
+
+async function sendToChatGPT(prompt: string, retryCount = 0): Promise<string|undefined> {
   const configuration = new Configuration({
     apiKey: process.env.RESTAPI,
   });
   const openai = new OpenAIApi(configuration);
 
-  const response = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: prompt + ' Answer back in cute voice.',
-    temperature: 0,
-    max_tokens: 100,
-    // top_p: 1,
-    // frequency_penalty: 0.0,
-    // presence_penalty: 0.0,
-  });
+  try {
+    const completion = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [{role: "user", content: prompt}],
+    });
 
-  return (response.data.choices[0].text);
+    return completion.data.choices[0].message?.content;
+  } catch (error:any) {
+    if (error.response && error.response.status === 429 && retryCount < MAX_RETRIES) {
+      const delay = INITIAL_DELAY * 2 ** retryCount;
+      await new Promise((resolve) => setTimeout(resolve, delay));
+      return sendToChatGPT(prompt, retryCount + 1);
+    }
+
+    throw error;
+  }
 }
 
-async function getCoinInfo(){
-  const tmp = await fetch('https://data.binance.com/api/v3/ticker/24hr')
-  console.log(tmp)
-  return tmp
-}
 
-type Data = {
-  name: string;
-};
+// async function getCoinInfo(){
+//   const tmp = await fetch('https://data.binance.com/api/v3/ticker/24hr')
+//   console.log(tmp)
+//   return tmp
+// }
+
+// type Data = {
+//   name: string;
+// };
 
 export default async function handler(
   req: NextApiRequest,
@@ -37,7 +47,8 @@ export default async function handler(
 ) {
   const key = process.env.RESTAPI;
   if (!key) return res.status(200).json({ name: "no" });
-  const result = await sendToChatGPT(req.body);
-
-  res.status(200).json({result : result, coin : 'empty' });
+      console.log('hi')
+      const result = await sendToChatGPT(req.body);
+      res.status(200).json({result : result, coin : 'empty' });
+    
 }
