@@ -6,7 +6,7 @@ export default function DonationImg() {
   return (
     <div className={styles.main} >
       <img
-        src="donate.jpeg"
+        src="/donate.jpeg"
         width="332px"
         height="222px"
         alt="Donate"

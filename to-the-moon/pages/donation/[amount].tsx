@@ -1,15 +1,12 @@
-import { Inter } from "@next/font/google";
 import styles from "@/styles/donation.module.css";
-import DonationImg from "../components/DonationImg";
-import ChooseAmount from "@/components/ChooseAmount";
+import DonationImg from "@/components/DonationImg";
 import BottomNavigation from "@/components/BottomNavigation";
+import { useRouter } from "next/router";
 
-
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function donation() {
-
+  const router = useRouter()
+  const { amount } = router.query
   return (
     <>
     <main className={styles.donation}>
@@ -17,17 +14,17 @@ export default function donation() {
       <div className={styles.donateNow}>
         <h1>Donate Now</h1>
         <img
-        src="TTM Logo.png"
+        src="/TTM Logo.png"
         width="55px"
         height="55px"
-        alt="Donate"
+        alt="TTM Logo"
       />
       </div>
       <div className={styles.thankYou}>
         <h1>Thank</h1>
         <h1>You</h1>
         <br  />
-        <h4 className={styles.donateButton2}>for $50</h4>
+        <h4 className={styles.donateButton2}>for ${amount}</h4>
         <br  />
         <h4 className={styles.ttm}>-To The Moon-</h4>
       </div>
@@ -35,6 +32,7 @@ export default function donation() {
       <br />
       <br />
       <div className={styles.ChooseAmountGroup}>
+
       <DonationImg />
      
       <br />
