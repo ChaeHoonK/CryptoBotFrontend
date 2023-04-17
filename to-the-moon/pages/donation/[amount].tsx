@@ -4,7 +4,7 @@ import BottomNavigation from "@/components/BottomNavigation";
 import { useRouter } from "next/router";
 
 
-export default function donation() {
+export default function Donation2() {
   const router = useRouter()
   const { amount } = router.query
   return (

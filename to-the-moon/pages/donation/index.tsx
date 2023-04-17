@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const amounts = [50, 100, 150];
 
-export default function donation() {
+export default function Donation() {
   const [index, setIndex] = useState(-1);
   const [amount, setAmount] = useState(0);
 
