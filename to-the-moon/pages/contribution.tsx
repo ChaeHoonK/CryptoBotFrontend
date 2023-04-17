@@ -3,6 +3,7 @@ import styles from "@/styles/contribution.module.css";
 import Profile from "../components/Profile";
 import ChooseAmount from "@/components/ChooseAmount";
 import BottomNavigation from "@/components/BottomNavigation";
+import BottomNavigationLayout from "@/components/layouts/BottomNavigationLayout";
 
 
 
@@ -10,7 +11,7 @@ import BottomNavigation from "@/components/BottomNavigation";
 export default function contribution() {
 
   return (
-    <>
+    <BottomNavigationLayout currentPage="contribution">
     <main className={styles.main}>
         <div className={styles.team}>
             <img src="team.jpg" width="390px" height="254px" />
@@ -31,7 +32,6 @@ export default function contribution() {
         
         
     </main>
-    <BottomNavigation />
-    </>
+    </BottomNavigationLayout>
   );
 }

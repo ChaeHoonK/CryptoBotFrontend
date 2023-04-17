@@ -22,6 +22,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import { numberWithCommas } from "@/library/string";
+import BottomNavigationLayout from "@/components/layouts/BottomNavigationLayout";
 
 const theme = createTheme({
   palette: {
@@ -219,6 +220,7 @@ export default function InvestmentDetailPage() {
   });
 
   return (
+    <BottomNavigationLayout currentPage="investment_detail">
     <div className={styles.main}>
       <ThemeProvider theme={theme}>
         <TopTitle />
@@ -261,7 +263,7 @@ export default function InvestmentDetailPage() {
         </TabPanel>
       </ThemeProvider>
 
-      <BottomNavigation />
     </div>
+    </BottomNavigationLayout>
   );
 }

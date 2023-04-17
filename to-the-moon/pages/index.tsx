@@ -6,11 +6,13 @@ import Navbar from "@/components/Navbar";
 import ForFun from "@/components/ForFrun";
 import InvestmentSummaryComponent from "@/components/InvestmentSummaryComponent";
 import InvestmentCardComponent from "@/components/InvestmentCardComponent";
-import { useEffect, useState } from "react";
-
-import BottomNavigation from "@/components/BottomNavigation";
+import { useEffect, useState, useRef } from "react";
+import BottomNavigationLayout from "@/components/layouts/BottomNavigationLayout";
+import { fetchData as fetchWallet } from "@/library/fetch";
 
 import TopTitle from "@/components/TopTitle";
+import FloatingChatButton from "@/components/FloatingChatButton";
+import ChatGPT from "@/components/ChatGptComponent";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,33 +21,45 @@ export default function Home() {
   const [wallet, setWallet] = useState<any>(undefined);
   const [bitcoin, setBitcoin] = useState(0);
   const [etherium, setEtherium] = useState(0);
+  const [showChatBox, setShowChatBox] = useState(false);
+
+  const chatBoxRef:any = useRef();
+
+  const handleChatButtonClick = (event:any) => {
+    event.stopPropagation();
+    setShowChatBox(!showChatBox);
+  };
+
+  const handleDocumentClick = (event:any) => {
+    if (chatBoxRef.current && !chatBoxRef.current.contains(event.target)) {
+      setShowChatBox(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data_res = await fetch("/api/wallet/1");
-      const bitcoin_res = await fetch(`/api/price/BTC`);
-      const ether_res = await fetch(`/api/price/ETC`);
-
-  
-      const data = await data_res.json();
-      const bit = await bitcoin_res.json();
-      const ether = await ether_res.json();
-
-      //console.log(data)
-      setWallet(data);
-      setBitcoin(Number(bit.price));
-      setEtherium(Number(ether.price));
-    };
-    
-    fetchData()
+    fetchWallet(setWallet, setBitcoin, setEtherium)
 
     const interval = setInterval(async() => {
-      await fetchData()
+      await fetchWallet(setWallet, setBitcoin, setEtherium)
     }
     , 15000);
 
-    return ()=>clearInterval(interval)
-  }, []);
+    return ()=>{
+      clearInterval(interval)
+    }
+  }, [wallet, bitcoin, etherium]);
+
+  useEffect(() => {
+    if (showChatBox) {
+      document.addEventListener('click', handleDocumentClick);
+    } else {
+      document.removeEventListener('click', handleDocumentClick);
+    }
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, [showChatBox]);
 
   return (
     <>
@@ -57,7 +71,7 @@ export default function Home() {
       </Head>
 
       {/* <Navbar/> */}
-
+      <BottomNavigationLayout currentPage="home">
       <main className={styles.main}>
         <TopTitle />
 
@@ -83,7 +97,27 @@ export default function Home() {
         
         {/* <ForFun></ForFun> */}
       </main>
-      <BottomNavigation />
+      </BottomNavigationLayout>
+      <FloatingChatButton onClick={handleChatButtonClick} />
+  
+        <div
+          ref={chatBoxRef}
+          style={{
+            position: 'fixed',
+            bottom: 20,
+            right: 20,
+            backgroundColor: 'white',
+            borderRadius: 8,
+            width: 300,
+            height: 400,
+            border: '1px solid #ccc',
+            overflow: 'hidden',
+            display: showChatBox ? 'block' : 'none',
+          }}
+        >
+          <ChatGPT/>
+        </div>
+      
     </>
     
   );

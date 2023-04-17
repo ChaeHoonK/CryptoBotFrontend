@@ -13,6 +13,8 @@ import BottomNavigation from "@/components/BottomNavigation";
 import TopTitle from "@/components/TopTitle";
 import { numberWithCommas } from "@/library/string";
 import { borderRadius, width } from "@mui/system";
+import BottomNavigationLayout from "@/components/layouts/BottomNavigationLayout";
+import { fetchData as fetchWallet } from "@/library/fetch";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,25 +26,10 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data_res = await fetch("/api/wallet/1");
-      const bitcoin_res = await fetch(`/api/price/BTC`);
-      const ether_res = await fetch(`/api/price/ETC`);
-
-      const data = await data_res.json();
-      const bit = await bitcoin_res.json();
-      const ether = await ether_res.json();
-
-      console.log(data);
-      setWallet(data);
-      setBitcoin(Number(bit.price));
-      setEtherium(Number(ether.price));
-    };
-
-    fetchData()
+    fetchWallet(setWallet, setBitcoin, setEtherium)
     
     const interval = setInterval(async() => {
-      await fetchData()
+      await fetchWallet(setWallet, setBitcoin, setEtherium)
     }
     , 15000);
 
@@ -86,7 +73,7 @@ export default function Home() {
       </Head>
 
       {/* <Navbar/> */}
-
+      <BottomNavigationLayout currentPage="order">
       <main className={styles.main}>
         <TopTitle />
 
@@ -156,9 +143,10 @@ export default function Home() {
           >sell</button>
         </div>
 
-        <BottomNavigation />
+        
         {/* <ForFun></ForFun> */}
       </main>
+      </BottomNavigationLayout>
     </>
   );
 }

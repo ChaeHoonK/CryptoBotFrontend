@@ -2,13 +2,15 @@ import styles from "@/styles/donation.module.css";
 import DonationImg from "@/components/DonationImg";
 import BottomNavigation from "@/components/BottomNavigation";
 import { useRouter } from "next/router";
+import BottomNavigationLayout from "@/components/layouts/BottomNavigationLayout";
+import Link from "next/link";
 
 
 export default function Donation2() {
   const router = useRouter()
   const { amount } = router.query
   return (
-    <>
+    <BottomNavigationLayout currentPage="donation">
     <main className={styles.donation}>
       
       <div className={styles.donateNow}>
@@ -38,14 +40,15 @@ export default function Donation2() {
       <br />
   
           <br />
-          <div className = {styles.donateButton}>
-            <h4>Donate Again</h4>
-          </div>
+          <Link href="/donation">
+            <div className = {styles.donateButton}>
+              <h4>Donate Again</h4>
+            </div>
+          </Link>
       </div>
     
       
     </main>
-    <BottomNavigation />
-    </>
+    </BottomNavigationLayout>
   );
 }

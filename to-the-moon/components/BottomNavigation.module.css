@@ -12,3 +12,12 @@
     box-shadow: 2px 2px 1px #FFF5E7 inset;
     padding-top: 10px;
 }
+
+.active {
+    /* Apply your active styles */
+    color: #E14D28;
+  }
+  .iconContainer {
+    text-align: center;
+  }
+  

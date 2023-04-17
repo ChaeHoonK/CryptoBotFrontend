@@ -5,6 +5,7 @@ import ChooseAmount from "@/components/ChooseAmount";
 import BottomNavigation from "@/components/BottomNavigation";
 import Link from "next/link";
 import { useState } from "react";
+import BottomNavigationLayout from "@/components/layouts/BottomNavigationLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,7 +31,7 @@ export default function Donation() {
   function handleClick() {}
 
   return (
-    <>
+    <BottomNavigationLayout currentPage="donation">
       <main className={styles.donation}>
         <div className={styles.donateNow}>
           <h1>Donate Now</h1>
@@ -78,7 +79,6 @@ export default function Donation() {
           </Link>
         </div>
       </main>
-      <BottomNavigation />
-    </>
+      </BottomNavigationLayout>
   );
 }

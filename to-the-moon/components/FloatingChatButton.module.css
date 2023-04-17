@@ -1,0 +1,14 @@
+/* styles/FloatingChatButton.module.css */
+.chatButton {
+  position: fixed;
+  bottom: 82px;
+  right: 20px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 16px;
+  cursor: pointer;
+}

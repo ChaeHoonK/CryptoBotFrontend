@@ -4,12 +4,21 @@ import { BsCoin, BsPeople } from "react-icons/bs";
 import {AiOutlineHeart} from "react-icons/ai"
 import Link from "next/link";
 
-export default function BottomNavigation() {
+type Props = {
+  currentPage: string;
+};
+
+export default function BottomNavigation({ currentPage }: Props) {
+
+  const getActiveClass = (pageName: string) => {
+    return currentPage === pageName ? styles.active : '';
+  };
+
   return (
     <div className={styles.main}>
       
         <Link href="/">
-          <div style={{textAlign:'center'}}>
+          <div className={`${styles.iconContainer} ${getActiveClass('home')}`}>
             <h1>
               <FaHome />
             </h1>
@@ -19,7 +28,7 @@ export default function BottomNavigation() {
       
       
         <Link href="/investment_detail">
-        <div style={{textAlign:'center'}}>
+        <div className={`${styles.iconContainer} ${getActiveClass('investment_detail')}`}>
           <h1>
             <BsCoin />
           </h1>
@@ -28,7 +37,7 @@ export default function BottomNavigation() {
         </Link>
       
       <Link href="/donation">
-        <div style={{textAlign:'center'}}>
+      <div className={`${styles.iconContainer} ${getActiveClass('donation')}`}>
           <h1>
             <AiOutlineHeart />
           </h1>
@@ -37,7 +46,7 @@ export default function BottomNavigation() {
       </Link>
 
       <Link href="/order">
-        <div style={{textAlign:'center'}}>
+        <div className={`${styles.iconContainer} ${getActiveClass('order')}`}>
           <h1>
             <FaReceipt />
           </h1>
@@ -46,7 +55,7 @@ export default function BottomNavigation() {
       </Link>
 
       <Link href="/contribution">
-        <div style={{textAlign:'center'}}>
+        <div className={`${styles.iconContainer} ${getActiveClass('contribution')}`}>
           <h1>
             <BsPeople />
           </h1>
