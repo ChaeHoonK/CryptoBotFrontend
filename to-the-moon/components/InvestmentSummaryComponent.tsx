@@ -42,14 +42,15 @@ export default function InvestmentSummaryComponent({
     <div className={styles.main}>
       <div className={styles.total}>
         <h4>Total Investments</h4>
-        <h2>
+        {!total?<span className={styles.spinner}></span>:<h2>
           ₩{" "}
           <CountUp
             key={total}
             end={total}
             duration={1.1}
           />
-        </h2>
+        </h2>}
+        
       </div>
       <hr className={styles.horizontal_line} />
 
