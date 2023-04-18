@@ -1,28 +1,7 @@
-
-
-interface DropdownMenuProps {
-  options: string[];
-  onChange: (option: string) => void;
-}
-
-
-const DropdownMenu: React.FC<DropdownMenuProps> = ({ options, onChange }) => {
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onChange(event.target.value);
-  };
-
-  return (
-    <select onChange={handleChange}>
-      {options.map((option, index) => (
-        <option key={index} value={option}>
-          {option}
-        </option>
-      ))}
-    </select>
-  );
-};
-
+// InvestmentCardComponent.tsx
 import React, { useState } from "react";
+// ... other imports ...
+import PerformanceMetrics from "../../components/PerformanceMetrics";
 import styles from "../../components/InvestmentCardComponent.module.css";
 import { BsCoin } from "react-icons/bs";
 import CountUp from "react-countup";
@@ -37,6 +16,7 @@ export default function InvestmentCardComponent({
   title: string;
   price: number;
 }) {
+  // ... other states and handlers ...
   const [dialogOpen, setDialogOpen] = useState(false);
   const [sliderValue, setSliderValue] = useState(0);
   const [startDate, setStartDate] = useState(new Date());
@@ -58,39 +38,33 @@ export default function InvestmentCardComponent({
   const handleDropdownChange = (option: string) => {
     setSelectedOption(option);
   };
+  // Dummy performance metrics data
+  const performanceData = {
+    totalReturn: 12.5,
+    sharpeRatio: 1.8,
+    maxDrawdown: -15.7,
+    winRate: 60,
+    numTrades: 42,
+  };
 
   return (
     <div className={styles.main} onClick={handleClick}>
-      {/* ... */}
+      {/* ... other elements ... */}
+
       <Dialog
         open={dialogOpen}
-        onClose={(event: MouseEvent, reason: string) => {
-          event.stopPropagation();
-          handleClose();
-        }}
+        onClose={handleClose}
+        // ... other props ...
       >
         <Box
           sx={{
-            bgcolor: "background.paper",
-            boxShadow: 24,
-            p: 4,
-            minWidth: 300,
+            // ... other styles ...
           }}
         >
-          {/* ... */}
-          <div className={styles.datePickerContainer}>
-            {/* ... */}
-          </div>
-          <div className={styles.dropdownMenuContainer}>
-            <label>Interval:</label>
-            <DropdownMenu
-              options={['min', 'hour', 'day']}
-              onChange={handleDropdownChange}
-            />
-          </div>
+          {/* ... other elements ... */}
+          <PerformanceMetrics {...performanceData} />
         </Box>
       </Dialog>
     </div>
   );
 }
-

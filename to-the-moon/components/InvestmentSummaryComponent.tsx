@@ -33,6 +33,7 @@ import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import CountUp from "react-countup";
 import { numberWithCommas } from "@/library/string";
 
+
 export default function InvestmentSummaryComponent({
   total,
   cash,
