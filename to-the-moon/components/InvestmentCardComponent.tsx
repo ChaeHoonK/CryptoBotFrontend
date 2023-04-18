@@ -1,6 +1,35 @@
+// import styles from "./InvestmentCardComponent.module.css";
+// import {BsCoin} from "react-icons/bs"
+// import { numberWithCommas } from "@/library/string";
+
+// export default function InvestmentCardComponent({
+//   title,
+//   price,
+// }: {
+//   title: string;
+//   price: number;
+// }) {
+
+//     function handleClick() {
+//         alert('아직 준비중 입니다')
+//     }
+
+//   return (
+    
+//     <div className={styles.main} onClick = {handleClick}>
+//       <div className={styles.sample}>
+//         <h1><BsCoin/></h1>
+//       </div>
+//       <h4>{title}</h4>
+//       <h3>₩ {numberWithCommas(price)}</h3>
+//     </div>
+//   );
+// }
+
+
 import styles from "./InvestmentCardComponent.module.css";
-import {BsCoin} from "react-icons/bs"
-import { numberWithCommas } from "@/library/string";
+import { BsCoin } from "react-icons/bs";
+import CountUp from "react-countup";
 
 export default function InvestmentCardComponent({
   title,
@@ -9,19 +38,21 @@ export default function InvestmentCardComponent({
   title: string;
   price: number;
 }) {
-
-    function handleClick() {
-        alert('아직 준비중 입니다')
-    }
+  function handleClick() {
+    alert("아직 준비중 입니다");
+  }
 
   return (
-    
-    <div className={styles.main} onClick = {handleClick}>
+    <div className={styles.main} onClick={handleClick}>
       <div className={styles.sample}>
-        <h1><BsCoin/></h1>
+        <h1>
+          <BsCoin />
+        </h1>
       </div>
       <h4>{title}</h4>
-      <h3>₩ {numberWithCommas(price)}</h3>
+      <h3>
+        ₩ <CountUp key={price} end={price} duration={1} />
+      </h3>
     </div>
   );
 }

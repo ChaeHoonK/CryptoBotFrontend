@@ -12,30 +12,19 @@ import BottomNavigation from "@/components/BottomNavigation";
 
 import TopTitle from "@/components/TopTitle";
 import { numberWithCommas } from "@/library/string";
-import { borderRadius, width } from "@mui/system";
 import BottomNavigationLayout from "@/components/layouts/BottomNavigationLayout";
-import { fetchData as fetchWallet } from "@/library/fetch";
+
+import { useContext } from "react";
+import { WalletContext } from "@/context/WalletContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const [wallet, setWallet] = useState<any>(undefined);
-  const [bitcoin, setBitcoin] = useState(0);
-  const [etherium, setEtherium] = useState(0);
+
   const [number, setNumber] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetchWallet(setWallet, setBitcoin, setEtherium)
-    
-    const interval = setInterval(async() => {
-      await fetchWallet(setWallet, setBitcoin, setEtherium)
-    }
-    , 15000);
-
-    return ()=>clearInterval(interval)
-
-  }, [loading]);
+  const { wallet, bitcoin, etherium, updateWallet }:any = useContext(WalletContext);
 
   function handleChange(e:any) {
     setNumber(e.target?.value)
@@ -55,6 +44,7 @@ export default function Home() {
         })
     })
     //const data = await response.json()
+    updateWallet()
     console.log('data is ', response)
 
     console.log('done')
@@ -79,24 +69,20 @@ export default function Home() {
 
         <br />
 
-        {loading?
-        <h1>loading...</h1>
-        :
         <InvestmentSummaryComponent
           total={wallet?.total}
           coin={wallet?.bitcoin}
           cash={wallet?.cash}
         />
-        }
-        
-
+      
         <br />
 
+        {loading ? <span className={styles.spinner}></span> : 
         <div style={{display:'flex', alignItems:'baseline'}}>
           <h3 style={{color:'#E14D28'}}>Coin: </h3>
           <h2>₩ {numberWithCommas(bitcoin)}</h2>
         </div>
-
+        }
         <br />
 
         <input type="text" onChange={handleChange} value={number}

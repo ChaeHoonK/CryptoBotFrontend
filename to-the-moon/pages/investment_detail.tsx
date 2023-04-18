@@ -1,11 +1,9 @@
 import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import TopTitle from "@/components/TopTitle";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
-import BottomNavigation from "@/components/BottomNavigation";
 import styles from "@/styles/Home.module.css";
 import { useEffect, useState } from "react";
 import {

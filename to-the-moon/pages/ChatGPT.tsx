@@ -116,9 +116,6 @@ export default function ChatGPT() {
         return <p className={index %2 == 1 ? styles.message : styles.messageMine} key = {index}>{elem}</p>
       })}
       </div>
-
-
-      {/* <p>{variable}</p> */}
     </div>
   );
 }
