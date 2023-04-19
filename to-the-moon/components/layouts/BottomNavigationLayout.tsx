@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import BottomNavigation from '../BottomNavigation';
 import FloatingChatButton from '../FloatingChatButton';
 import ChatGptComponent from '../ChatGptComponent';
+import { truncate } from 'fs';
 
 type Props = {
   children: React.ReactNode;
@@ -9,19 +10,23 @@ type Props = {
 };
 
 const Layout: React.FC<Props> = ({ children, currentPage }:Props) => {
-    const [showChatBox, setShowChatBox] = useState(false);
+  const [showChatBox, setShowChatBox] = useState(false);
   const chatBoxRef:any = useRef();
-  const [chatList, setChatList] = useState<any[]>([]);
+  
 
-  const handleChatButtonClick = (event:any) => {
+  const handleChatButtonClick = (event:React.MouseEvent) => {
     event.stopPropagation();
-    setShowChatBox(!showChatBox);
+    console.log('handleChatButtonClick - chat should be open')
+    setShowChatBox(true);
   };
 
   const handleDocumentClick = (event:any) => {
-    if (chatBoxRef.current && !chatBoxRef.current.contains(event.target)) {
+    console.log('document click')
+    if (chatBoxRef.current && !chatBoxRef.current.contains(event.target)&&showChatBox==true) {
+      console.log('chat should be close')
       setShowChatBox(false);
     }
+
   };
 
   useEffect(() => {
@@ -41,7 +46,7 @@ const Layout: React.FC<Props> = ({ children, currentPage }:Props) => {
     <>
       <div>{children}</div>
       <BottomNavigation currentPage={currentPage} />
-      <FloatingChatButton onClick={handleChatButtonClick} />
+      <FloatingChatButton onToggleChat={handleChatButtonClick} />
   
         <div
           ref={chatBoxRef}

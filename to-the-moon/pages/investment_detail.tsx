@@ -247,6 +247,8 @@ export default function InvestmentDetailPage() {
               padding: "10px",
               margin: "0px 10px 0px",
               backgroundColor: "white",
+              overflowY:"scroll",
+              height:'calc(100vh - 150px)'
             }}
           >
             <h3>Trade History</h3>
