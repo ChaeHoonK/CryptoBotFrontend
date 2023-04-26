@@ -20,33 +20,5 @@
     background-color: transparent;
 }
 
-.datePickerContainer {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
-  }
-  
-  .datePickerContainer label {
-    margin-top: 0.5rem;
-  }
-  
-  .datePicker {
-    height: 30px;
-    width: 100%;
-    margin-top: 0.5rem;
-    padding: 0 0.5rem;
-  }
-  
-  .dropdownMenuContainer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1rem;
-  }
-  
-  .dropdownMenuContainer select {
-    width: 50%;
-    height: 30px;
-    padding: 0 0.5rem;
-  }
+
   

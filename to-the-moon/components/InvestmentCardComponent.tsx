@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { Dialog, Box, Slider } from "@mui/material";
 import DropdownMenu from './DropdownMenu';
 import PerformanceMetrics from "./PerformanceMetrics";
+import BackTestComponent from "./BackTestComponent";
 
   // Dummy performance metrics data
   const performanceData = {
@@ -72,67 +73,7 @@ export default function InvestmentCardComponent({
           handleClose();
         }}
       >
-        <Box
-          sx={{
-            bgcolor: "background.paper",
-            boxShadow: 24,
-            p: 4,
-            minWidth: 300,
-          }}
-        >
-          <h2 id="modal-title">Test Trading Algorithm with {title}</h2>
-          <p id="modal-description">Adjust the slider between 0 and 100:</p>
-          <Slider
-            value={sliderValue}
-            onChange={handleSliderChange}
-            min={0}
-            max={100}
-            step={1}
-            valueLabelDisplay="auto"
-          />
-          <div className={styles.datePickerContainer}>
-            <label>Start Date:</label>
-            <DatePicker
-              selected={startDate}
-              onChange={(date: Date | [Date, Date] | null) =>
-                setStartDate(date as Date)
-              }
-              className={styles.datePicker}
-            />
-            <label>End Date:</label>
-            <DatePicker
-              selected={endDate}
-              onChange={(date: Date | [Date, Date] | null) => {
-                setEndDate(date as Date)
-              }
-                
-              }
-              className={styles.datePicker}
-            />
-          </div>
-       
-           <div className={styles.dropdownMenuContainer}>
-            <label>Interval:</label>
-            <DropdownMenu
-              options={['minute', 'hour', 'day']}
-              onChange={handleDropdownChange}
-            />
-          </div>
-
-          <div className={styles.dropdownMenuContainer}>
-            <label>Algorithms:</label>
-            <DropdownMenu
-              options={['MACD','TRIX','ROE', 'Ichimoku Cloud', 'Bollinger Bands']}
-              onChange={handleAlgoDropdownChange}
-            />
-          </div>
-          <PerformanceMetrics {...performanceData} />
-        </Box>
-        <button onClick={()=> {
-            console.log(sliderValue)
-            console.log(startDate)
-            console.log(endDate)
-          }}>test</button>
+        <BackTestComponent title={title}/>
       </Dialog>
     </div>
   );
