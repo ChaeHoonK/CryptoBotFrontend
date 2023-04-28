@@ -38,11 +38,15 @@
   left: 50%;
   width: 100%;
   transform: translate(-50%, -50%);
-  font-size: 100px;
+  font-size: 80px;
   font-family: "Outfit";
   text-align: center;
   color: white;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+.notification {
+  text-align: center;
 }
 

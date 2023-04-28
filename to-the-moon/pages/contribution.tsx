@@ -20,7 +20,7 @@ export default function contribution() {
         <br />
         
         <div className={styles.people}>
-            <Profile ImgSrc="chaehoon.png" MemberName="Chae Hoon Kim" Role="Project Manager"/>
+            <Profile ImgSrc="chaehoon.png" MemberName="Chae Hoon Kim" Role="Project Manager" link="https://www.linkedin.com/in/chae-hoon-kim/"/>
             <Profile ImgSrc="mooyoung.png" MemberName="Mooyoung Jung" Role="FrontEnd"/>
             <Profile ImgSrc="sally.JPG" MemberName="Sehyun Seo" Role="FrontEnd"/>
             <Profile ImgSrc="heonjang.jpeg" MemberName="Heonjang Lee" Role="Backend"/>
@@ -30,6 +30,7 @@ export default function contribution() {
             <Profile ImgSrc="emily_shin.jpeg" MemberName="Emily Shin" Role="Design"/>
         </div>
         
+        <h3 className={styles.notification}> Click for More Information </h3>
         
         
     </main>
