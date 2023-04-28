@@ -19,22 +19,22 @@ const PerformanceMetrics: React.FC<PerformanceMetricsProps> = ({
 }) => {
   return (
     <div className={styles.performanceMetrics}>
-      <h3>Performance Metrics</h3>
+      <h2>Performance Metrics</h2>
       <div className={styles.metrics}>
         <div className={styles.metric}>
-          <strong>Total Return: </strong> {totalReturn.toFixed(2)}%
+          <h4>Total Return: {totalReturn.toFixed(2)}%</h4>
         </div>
         <div className={styles.metric}>
-          <strong>Sharpe Ratio: </strong> {sharpeRatio.toFixed(2)}
+          <h4>Sharpe Ratio: {sharpeRatio.toFixed(2)}</h4>
         </div>
         <div className={styles.metric}>
-          <strong>Max Drawdown: </strong> {maxDrawdown.toFixed(2)}%
+          <h4>Max Drawdown: {maxDrawdown.toFixed(2)}%</h4>
         </div>
         <div className={styles.metric}>
-          <strong>Win Rate: </strong> {winRate.toFixed(2)}%
+          <h4>Win Rate: {winRate.toFixed(2)}%</h4>
         </div>
         <div className={styles.metric}>
-          <strong>Number of Trades: </strong> {numTrades}
+          <h4>Number of Trades: {numTrades}</h4>
         </div>
       </div>
     </div>
