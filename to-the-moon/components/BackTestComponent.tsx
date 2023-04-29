@@ -63,9 +63,10 @@ function BackTestComponent({ title }: any) {
 
   const algoMap: any = {
     MACD: "MACD",
-    TRIX: "ROE",
+    TRIX: "TRIX",
     "Ichimoku Cloud": "IC",
     "Bollinger Bands": "BB",
+    "Stochastic Oscillator": "SO"
   };
 
   const handleTestClick = (e: React.MouseEvent) => {
@@ -158,6 +159,7 @@ function BackTestComponent({ title }: any) {
               "TRIX",
               "Ichimoku Cloud",
               "Bollinger Bands",
+              "Stochastic Oscillator"
             ]}
             onChange={handleAlgoDropdownChange}
           />
