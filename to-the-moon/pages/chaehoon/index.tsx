@@ -62,7 +62,6 @@ export default function InvestmentCardComponent({
           }}
         >
           {/* ... other elements ... */}
-          <PerformanceMetrics {...performanceData} />
         </Box>
       </Dialog>
     </div>

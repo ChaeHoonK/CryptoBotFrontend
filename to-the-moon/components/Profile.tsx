@@ -3,7 +3,7 @@ import styles from "./Profile.module.css";
 
 function linked(component: ReactComponentElement<any>, link: string) {
   return (
-    <a href={link} target="_blank">
+    <a href={link} target="_blank" rel="noreferrer">
       {component}
     </a>
   );

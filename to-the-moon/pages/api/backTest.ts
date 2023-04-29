@@ -10,19 +10,17 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
     const body = JSON.parse(req.body)
-    console.log('req body original', req.body)
-    console.log('바딩', body)
-    
     const axios = require('axios')
     const data = JSON.stringify({
-        "startDate": body.startDate,
-          "endDate": body.endDate,
-          'selectedAlgo': body.selectedAlgo
+        "start": body.start,
+        "end": body.end,
+        'decision_function': body.algo,
+        "initial_balance":body.balance
     })
 
     const config = {
         method:'post',
-        url:process.env.BACKEND_HOST + 'backTest',
+        url:process.env.BACKEND_HOST + 'test',
         headers: { 
             'Content-Type': 'application/json'
           },

@@ -41,7 +41,7 @@ export default function ChooseAmount({
       backgroundColor: color === 'normalColor' ? '#f0f0f0' : '#f0a0a0'
     }}
     ref = {cardRef}>
-      <h4>₩ {price}</h4>
+      <h4>$ {price}</h4>
     </div>
   );
 }
