@@ -30,5 +30,7 @@ export default async function handler(
     }
     const response = await axios(config)
 
+    console.log(response)
+
     res.status(200).send(response.data)
 }
