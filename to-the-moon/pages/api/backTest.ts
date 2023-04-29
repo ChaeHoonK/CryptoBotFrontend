@@ -15,7 +15,8 @@ export default async function handler(
         "start": body.start,
         "end": body.end,
         'decision_function': body.algo,
-        "initial_balance":body.balance
+        "initial_balance":body.balance,
+        "interval":"day"
     })
 
     const config = {
