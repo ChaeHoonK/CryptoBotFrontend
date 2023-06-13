@@ -26,7 +26,7 @@ export default function contribution() {
             <Profile ImgSrc="heonjang.jpeg" MemberName="Heonjang Lee" Role="Backend" link = "https://www.linkedin.com/in/heonjang-lee-766927169"/>
             <Profile ImgSrc="seunghwan.jpeg" MemberName="Seunghwan Hong" Role="Backend" link="https://www.linkedin.com/in/seunghwan-hong-7b4646250/"/>
             <Profile ImgSrc="jaeyoung.png" MemberName="Jaeyoung Kang" Role="Backend" link = "https://www.linkedin.com/in/jaeyoung-kang-653aa8250/"/>
-            <Profile ImgSrc="hongju.jpeg" MemberName="Hong Ju Jin" Role="Design" link = "www.linkedin.com/in/hongju-jin-509b32225"/>
+            <Profile ImgSrc="hongju.jpeg" MemberName="Hong Ju Jin" Role="Design" link = "https://www.linkedin.com/in/hongju-jin-509b32225"/>
             <Profile ImgSrc="emily_shin.jpeg" MemberName="Emily Shin" Role="Design" link="https://www.linkedin.com/in/yuneyong-emily-shin-/"/>
         </div>
         
